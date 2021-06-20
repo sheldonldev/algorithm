@@ -1,6 +1,6 @@
 const Helper = require('./Helper')
 
-const helper = new Helper
+const helper = new Helper()
 
 /*
  * Fibonacci
