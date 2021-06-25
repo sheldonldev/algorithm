@@ -57,8 +57,9 @@ const testFib = (testList, mode='classic') => {
 }
 
 const testList = [0, 10, 20, 30, 40, 45, 50]
-testFib(testList, mode='memo')
+
 testFib(testList, mode='tabu')
+testFib(testList, mode='memo')
 testFib(testList, mode='classic')
 
 
