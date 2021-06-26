@@ -55,16 +55,6 @@ const gridTraveler = (m, n, mode) => {
     }
 }
 
-
-const testGridTraveler = (testList, mode = 'classic') => {
-    console.log(`=== ${mode} mode ===`)
-    for (const m_n of testList) {
-        console.log(`calculating ${m_n[0]} * ${m_n[1]} grid...`)
-        const res = helper.timeAndSpaceUsage(gridTraveler, [...m_n, mode])
-        console.log(`result:`, res)
-    }
-}
-
 const testList = [
     [10, 10], 
     [20, 20], 
@@ -73,9 +63,9 @@ const testList = [
     [50, 50]
 ]
 
-testGridTraveler(testList, mode='tabu')
-testGridTraveler(testList, mode='memo')
-testGridTraveler(testList, mode='classic')
+helper.testFunc(gridTraveler, [testList, mode='tabu'])
+helper.testFunc(gridTraveler, [testList, mode='memo'])
+helper.testFunc(gridTraveler, [testList, mode='classic'])
 
 
 

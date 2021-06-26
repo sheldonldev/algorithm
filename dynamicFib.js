@@ -12,6 +12,7 @@ const _fib = (n) => {
     return _fib( n - 1 ) + _fib( n - 2 )
 } // O(2^n) time, O(n) space
 
+
 // memoization of fibonacci
 const _fibMemo = (n, memo={}) => {
     if (n <= 2) return 1
@@ -20,6 +21,7 @@ const _fibMemo = (n, memo={}) => {
     memo[n] = _fibMemo( n - 1, memo ) + _fibMemo( n - 2, memo ) // don't worry, default copy is by reference
     return memo[n]
 } // O(n) time, O(n) space
+
 
 // tebulization of fibonacci
 const _fibTabu = (n) => {
@@ -32,6 +34,7 @@ const _fibTabu = (n) => {
 
     return table[n]
 }
+
 
 /*
  * Test
@@ -47,20 +50,11 @@ const fib = (n, mode) => {
     }
 }
 
-const testFib = (testList, mode='classic') => {
-    console.log(`=== ${mode} mode ===`)
-    for (const n of testList) {
-        console.log(`calculating ${n}th number...`)
-        const res = helper.timeAndSpaceUsage(fib, [n, mode])
-        console.log(`result:`, res)
-    } 
-}
-
 const testList = [0, 10, 20, 30, 40, 45, 50]
 
-testFib(testList, mode='tabu')
-testFib(testList, mode='memo')
-testFib(testList, mode='classic')
+helper.testFunc(fib, [testList, mode='tabu'])
+helper.testFunc(fib, [testList, mode='memo'])
+helper.testFunc(fib, [testList, mode='classic'])
 
 
 
